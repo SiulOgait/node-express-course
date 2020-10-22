@@ -4,6 +4,19 @@ const app = express();
 /* The first line gives you access to the express library by searching your node_modules for "express". The next creates an instance of the express constructor, which we will name "app".
 We can now access methods used for making a server by including their name after app. Add this to the bottom of server.js:
  */
+
+const mockUserData = [
+    { name: 'Tiago' }, { name: 'William' }
+];
+
+app.get('/users', function(req, res) {
+    res.json({
+        success: true,
+        message: 'successfully got users. Nice!',
+        users: mockUserData
+    })
+})
+
 app.listen(8000, function() {
     console.log("My first Node.js Server is running")
 })
